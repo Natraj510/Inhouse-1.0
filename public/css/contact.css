@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins',sans-serif;
+}
+body{
+    background:rgb(243, 234, 234);
+}
+.heading{
+    margin-top: 20px;
+    text-align:center;
+    font-family: 'Encode Sans SC', sans-serif;
+    font-size: 18px;
+    color:#81161b;
+    background:rgb(243, 234, 234);
+}
+.para1{
+    font-family: 'Lora', serif;
+    color:#05104b;
+}
+section{
+    position:relative;
+    display:flex;
+    justify-content: center;
+    min-height: 100vh;
+    align-items: center;
+    background:rgb(243, 234, 234);
+}
+section::before
+{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width:50%;
+    height:100%;
+    background:rgb(243, 234, 234);
+}
+.container{
+    position: relative;
+    min-height: 550px;
+    min-width: 1100px;
+    display:flex;
+    z-index: 1000;
+}
+.contact_info{
+    border-radius: 5px;
+    position: absolute;
+    margin-top:80px;
+    margin-bottom: 400px;
+    margin-left: 20px;
+    width:400px;
+    height:430px;
+    background:#81161b;
+    z-index: 1;
+    padding: 40px;
+    display:flex;
+    justify-content: space-between;
+    flex-direction:column;
+    box-shadow:0 20px 20px rgba(0,0,0,0.2);
+}
+h2{
+    color:white;
+    font-size: 25px;
+    font-weight: 500;
+}
+.info{
+    position: relative;
+    margin: 20px 0;
+}
+li{
+    position:relative;
+    list-style:none;
+    display:flex;
+    margin: 20px 0;
+    cursor:pointer;
+    align-items: flex-start;
+}
+span:nth-child(1){
+    color:white;
+    width:30px;
+    min-width: 30px;
+   margin-top: 20px;
+}
+.image1{
+    max-width: 50px;
+    max-height: 50px;
+}
+.image2{
+    max-width: 50px;
+    max-height: 50px;
+}
+.image3{
+    max-width: 50px;
+    max-height: 50px;
+}
+.image4{
+    margin-top: 30px;
+    margin-left: 80px;
+    max-width: 300px;
+    max-height: 300px;
+}
+section .container .contact_info span:nth-child(2){
+    color:white;
+    margin-left: 17px;
+    font-weight: 300;
+    margin-top: 30px;
+    margin-left: 50px;
+}
+section .container .contactform{
+    position: absolute;
+    padding: 70px 50px;
+    background: white;
+    width:80% ;
+    margin-top: 35px;
+    padding-left: 290px;
+    margin-left: 200px;
+    box-shadow:0 50px 50px rgba(0,0,0,0.5);
+}
+section .container .contactform h2{
+    color:#05104b;
+    font-size: 25px;
+    font-weight:500;
+}
+section .container .contactform .formbox{
+    position: relative;
+    display:flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-top: 30px;
+    max-height: 370px;
+}
+section .container .contactform .formbox .inputbox{
+    position: relative;
+    margin:0 0 35px 0;
+}
+section .container .contactform .formbox .inputbox.w50{
+    width:47%;
+    align-self: left;
+}
+section .container .contactform .formbox .inputbox.w100{
+    width:100%;
+    height:70px;
+}
+section .container .contactform .formbox .inputbox1{
+    width: 100px;
+    align-self: auto;
+    padding-top:30px;   
+}
+section .container .contactform .formbox .inputbox1 input{
+    position: relative;
+    cursor: pointer;
+    background: #05104b;
+    font-size: 20px;
+    color:white;
+    min-width: 120px;
+    min-height: 40px;
+    border-radius: 12px;
+}
+section .container .contactform .formbox .inputbox1 input:hover{
+    background: #81161b;
+}
+section .container .contactform .formbox .inputbox input,
+section .container .contactform .formbox .inputbox textarea{
+    width:100%;
+    padding:5px 0;
+    font-size: 18px;
+    font-weight: 300;
+    color:#333;
+    border:none;
+    border-bottom:1px solid #777;
+    outline:none ;
+
+}
+section .container .contactform .formbox .inputbox textarea{
+    min-height: 100px;
+}
+section .container .contactform .formbox .inputbox span{
+    position: absolute;
+    left:0;
+    padding:5px 0;
+    font-size: 18px;
+    font-family: 'Vollkorn', serif;
+    font-weight: 300;
+    color:rgb(114, 105, 105);
+    transition: 0.5%;
+    pointer-events: none;
+}
+section .container .contactform .formbox .inputbox input:focus ~ span,
+section .container .contactform .formbox .inputbox textarea:focus ~ span,
+section .container .contactform .formbox .inputbox input:valid ~ span,
+section .container .contactform .formbox .inputbox textarea:valid ~ span
+{
+    transform: translateY(-20px);
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color:#81161b;
+}
+.gmap iframe{
+    border-color: #05104b;
+    border-width: 1.5px;
+}

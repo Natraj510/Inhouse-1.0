@@ -1,0 +1,31 @@
+.cre{
+    display: none;
+}
+
+@media (max-width: 993px) {
+    .top-bar {
+        background-color: white;
+    }
+}
+
+@media (max-width: 993px) {
+    .slide {
+        display: none;
+    }
+}
+
+@media (max-width: 993px) {
+    .cre{
+        display: inline-block;
+    }
+}
+
+.list{
+    border-bottom: 1px solid rgba(182, 179, 179, 0.568)!important;
+    text-decoration: none!important;
+    padding: 20px!important;
+    text-align:center!important;
+}
+body{
+    background-color: rgba(226, 220, 220, 0.39);
+}
