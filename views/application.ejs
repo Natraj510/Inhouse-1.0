@@ -62,15 +62,15 @@
       </div>
     </div>
     <div class="container body">
-      <table class="table">
+      <table class="table table-striped">
         <thead class="table-light">
           <tr>
             <th scope="col">Id</th>
             <th scope="col">Name</th>
-            <th scope="col" class="hide">Email</th>
-            <th scope="col" class="hide">Phone No.</th>
-            <th scope="col" class="hide">State</th>
-            <th scope="col" class="hide">Course</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone No.</th>
+            <th scope="col">State</th>
+            <th scope="col">Course</th>
           </tr>
         </thead>
         <tbody>
@@ -78,10 +78,10 @@
             <tr>
               <th scope="row"><%=apply.id%></th>
               <td><%=apply.name%></td>
-              <td class="hide"><%=apply.email%></td>
-              <td class="hide">+<%=apply.code%> <%=apply.mobile%></td>
-              <td class="hide"><%=apply.state%></td>
-              <td class="hide"><%=apply.course%></td>
+              <td><%=apply.email%></td>
+              <td>+<%=apply.code%> <%=apply.mobile%></td>
+              <td><%=apply.state%></td>
+              <td><%=apply.course%></td>
               <td>
                 <div class="btn-group dropleft">
                   <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

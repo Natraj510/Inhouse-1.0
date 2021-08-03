@@ -15,14 +15,6 @@ router.get('/',(req,res)=>{
     }
 })
 
-router.get('/admin',(req,res) =>{
-    try{
-        res.render('admin',{ layout: 'admin' })
-    }catch{
-        res.status(401).json({success:false})
-        console.log(err);
-    }
-})
 
 router.get('/online-learning',(req,res)=>{
     try{

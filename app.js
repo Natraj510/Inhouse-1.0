@@ -16,7 +16,9 @@ const PORT = process.env.PORT;
 //MIDDLEWARES
 app.use(expressLayouts);
 app.set('views', './views')
+
 app.set("layout admin", false);
+app.set("layout queries", false);
 app.set('view engine', 'ejs')
 app.use(express.json())
 app.use(express.urlencoded({extended:false}));
@@ -41,6 +43,7 @@ app.use((req,res,next) =>{
 
 //ROUTES
 app.use('/',require('./routes/static'))
+app.use('/admin',require('./routes/admin'))
 
 
 

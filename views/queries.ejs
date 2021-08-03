@@ -65,23 +65,21 @@
       <table class="table">
         <thead class="table-light">
           <tr>
-            <th scope="col">Id</th>
             <th scope="col">Name</th>
             <th scope="col" class="hide">Email</th>
             <th scope="col" class="hide">Phone No.</th>
-            <th scope="col" class="hide">State</th>
-            <th scope="col" class="hide">Course</th>
+            <th scope="col" class="hide">subjects</th>
+
           </tr>
         </thead>
         <tbody>
-          <% app.forEach(apply =>{%>
+          <% query.forEach(queries =>{%>
             <tr>
-              <th scope="row"><%=apply.id%></th>
-              <td><%=apply.name%></td>
-              <td class="hide"><%=apply.email%></td>
-              <td class="hide">+<%=apply.code%> <%=apply.mobile%></td>
-              <td class="hide"><%=apply.state%></td>
-              <td class="hide"><%=apply.course%></td>
+              <td><%=queries.name%></td>
+              <td class="hide"><%=queries.email%></td>
+              <td class="hide"><%=queries.mobile%></td>
+              <td class="hide"><%=queries.subject%></td>
+              
               <td>
                 <div class="btn-group dropleft">
                   <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
