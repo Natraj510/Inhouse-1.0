@@ -41,66 +41,7 @@
       </div>
     </div>
     <!-- <div style="margin-top: 20px;"></div> -->
-    <div class="w3-container content">
-      <div class="container">
-        <div class="tab" style="margin-top: 30px;">
-          <div class="search-bar">
-            <form action="/admin/search" method="POST">
-              <div class="search">
-                <input type="text" placeholder="Search" name="search" class="form-control" style="width: 200px;">
-                <button><i class="fa fa-search" aria-hidden="true"></i></button>
-              </div>
-            </form>
-          </div>
-          <div class="create">
-            <a href="/admin/application/new" class="btn btn-primary">+ Create New</a>
-          </div>
-        </div>
-      <div>
-          
-        </div>
-      </div>
-    </div>
-    <div class="container body">
-      <table class="table">
-        <thead class="table-light">
-          <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Name</th>
-            <th scope="col" class="hide">Email</th>
-            <th scope="col" class="hide">Phone No.</th>
-            <th scope="col" class="hide">State</th>
-            <th scope="col" class="hide">Course</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% app.forEach(apply =>{%>
-            <tr>
-              <th scope="row"><%=apply.id%></th>
-              <td><%=apply.name%></td>
-              <td class="hide"><%=apply.email%></td>
-              <td class="hide">+<%=apply.code%> <%=apply.mobile%></td>
-              <td class="hide"><%=apply.state%></td>
-              <td class="hide"><%=apply.course%></td>
-              <td>
-                <div class="btn-group dropleft">
-                  <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
-                  </button>
-                  <div class="dropdown-menu">
-                    <a class="dropdown-item" href=""><i class="fa fa-pencil" aria-hidden="true" style="padding: 10px;"></i> Edit</a>
-                    <form action="" method="POST" style="height: 30px;padding: 10px;">
-                      <button style="margin-top: -10px; border: none; background-color: white; margin-left: 17px;"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
-                    </form>
-                  </div>
-                </div>
-              </td>
-            </tr>
-          <%})%>
-          
-        </tbody>
-      </table>
-    </div>
+    <%-body%>
        
     </div>
   </section>

@@ -1,120 +1,59 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <title>Crescent</title>
-    <link rel="stylesheet" href="../css/admin.css">
-</head>
-<body>
-
-  <section>
-    <div class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left" style="width:300px;" id="mySidebar">
-      <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()">Close &times;</button>
-      <div>
-        <a href="#" class="w3-bar-item"><img src="../img/logo.jpg" alt="" style="max-width: 240px;"></a>
+<div class="w3-container content">
+  <div class="container">
+    <div class="tab" style="margin-top: 30px;">
+      <div class="search-bar">
+        <form action="/admin/search" method="POST">
+          <div class="search">
+            <input type="text" placeholder="Search" name="search" class="form-control" style="width: 200px;">
+            <button><i class="fa fa-search" aria-hidden="true"></i></button>
+          </div>
+        </form>
       </div>
-      <div style="margin-top: 50px; padding: 20px;">
-        <a href="/admin/applications" class="w3-bar-item w3-button list">Applications</a>
-        <a href="/admin/queries" class="w3-bar-item w3-button list">Queries</a>
-        <a href="/admin/courses" class="w3-bar-item w3-button list">Courses</a>
-      </div>
-
-      <div style="display: none;">
-        <a href="#" class="w3-bar-item w3-button align-bottom" style="text-decoration: none;"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
+      <div class="create">
+        <a href="/admin/application/new" class="btn btn-primary">+ Create New</a>
       </div>
     </div>
-    
-    <div class="w3-main" style="margin-left:300px;">
-    <div class="top-bar">
-      <button class="w3-button w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</button>
-      <img src="../img/logo.jpg" style="max-height: 70px;" class="cre" alt="">
+  <div>
       
-      <div class="w3-container" style="background-color: white; box-shadow: 10px 5px 5px 5px rgba(218, 213, 213, 0.24);">
-        <a href="/logout" style="text-decoration: none;"><h3 class="text-right slide" style="color: black; padding: 15px;"><i class="fa fa-sign-out" aria-hidden="true"></i> Log out</h3></a>
-      </div>
     </div>
-    <!-- <div style="margin-top: 20px;"></div> -->
-    <div class="w3-container content">
-      <div class="container">
-        <div class="tab" style="margin-top: 30px;">
-          <div class="search-bar">
-            <form action="/admin/search" method="POST">
-              <div class="search">
-                <input type="text" placeholder="Search" name="search" class="form-control" style="width: 200px;">
-                <button><i class="fa fa-search" aria-hidden="true"></i></button>
+  </div>
+</div>
+<div class="container body">
+  <table class="table">
+    <thead class="table-light">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col" class="hide">Email</th>
+        <th scope="col" class="hide">Phone No.</th>
+        <th scope="col" class="hide">subjects</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <% query.forEach(queries =>{%>
+        <tr>
+          <td><%=queries.name%></td>
+          <td class="hide"><%=queries.email%></td>
+          <td class="hide"><%=queries.mobile%></td>
+          <td class="hide"><%=queries.subject%></td>
+          
+          <td>
+            <div class="btn-group dropleft">
+              <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+              </button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item text-center" href=""> Show</a>
+                <a class="dropdown-item" href=""><i class="fa fa-pencil" aria-hidden="true" style="padding: 10px;"></i> Edit</a>
+                <form action="" method="POST" style="height: 30px;padding: 10px;">
+                  <button style="margin-top: -10px; border: none; background-color: white; margin-left: 17px;"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
+                </form>
               </div>
-            </form>
-          </div>
-          <div class="create">
-            <a href="/admin/application/new" class="btn btn-primary">+ Create New</a>
-          </div>
-        </div>
-      <div>
-          
-        </div>
-      </div>
-    </div>
-    <div class="container body">
-      <table class="table">
-        <thead class="table-light">
-          <tr>
-            <th scope="col">Name</th>
-            <th scope="col" class="hide">Email</th>
-            <th scope="col" class="hide">Phone No.</th>
-            <th scope="col" class="hide">subjects</th>
-
-          </tr>
-        </thead>
-        <tbody>
-          <% query.forEach(queries =>{%>
-            <tr>
-              <td><%=queries.name%></td>
-              <td class="hide"><%=queries.email%></td>
-              <td class="hide"><%=queries.mobile%></td>
-              <td class="hide"><%=queries.subject%></td>
-              
-              <td>
-                <div class="btn-group dropleft">
-                  <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
-                  </button>
-                  <div class="dropdown-menu">
-                    <a class="dropdown-item" href=""><i class="fa fa-pencil" aria-hidden="true" style="padding: 10px;"></i> Edit</a>
-                    <form action="" method="POST" style="height: 30px;padding: 10px;">
-                      <button style="margin-top: -10px; border: none; background-color: white; margin-left: 17px;"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
-                    </form>
-                  </div>
-                </div>
-              </td>
-            </tr>
-          <%})%>
-          
-        </tbody>
-      </table>
-    </div>
-       
-    </div>
-  </section>
-  
-  
-    <script src="../js/index.js"></script>
-    <script>
-      function w3_open() {
-        document.getElementById("mySidebar").style.display = "block";
-      }
+            </div>
+          </td>
+        </tr>
+      <%})%>
       
-      function w3_close() {
-        document.getElementById("mySidebar").style.display = "none";
-      }
-    </script>
-   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-</body>
-</html>
+    </tbody>
+  </table>
+</div>
