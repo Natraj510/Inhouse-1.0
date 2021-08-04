@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const nodemailer = require('nodemailer')
 const apply = require('../models/application')
 const query = require('../models/query')
+const course = require('../models/courses')
 const router = express.Router()
 
 //LANDING PAGE
@@ -16,17 +17,20 @@ router.get('/',(req,res)=>{
 })
 
 
-router.get('/online-learning',(req,res)=>{
+router.get('/online-learning',async (req,res)=>{
     try{
-        res.render('OL')
+        const courses = await course.find()
+        res.render('OL',{course:courses})
     }catch(err){
         res.status(404).json({success:false})
         console.log(err);
     }
 })
-router.get('/mba',(req,res)=>{
+router.get('/online-learning/:id',async (req,res)=>{
     try{
-        res.render('mba')
+        const subjects = await course.findById(req.params.id)
+        // console.log(mba);
+        res.render('subjects',{sub:subjects})
     }catch(err){
         res.status(404).json({success:false})
         console.log(err);
@@ -35,16 +39,6 @@ router.get('/mba',(req,res)=>{
 router.get('/mca',(req,res)=>{
     try{
         res.render('mca')
-    }catch(err){
-        res.status(404).json({success:false})
-        console.log(err);
-    }
-})
-
-
-router.get('/pg-programmes',(req,res)=>{
-    try{
-        res.render('pg')
     }catch(err){
         res.status(404).json({success:false})
         console.log(err);

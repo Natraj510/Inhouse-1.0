@@ -4,8 +4,7 @@ const nodemailer = require('nodemailer')
 const expressLayouts = require('express-ejs-layouts')
 const flash = require('connect-flash')
 const session = require('express-session')
-const apply = require('./models/application')
-const query = require('./models/query')
+const methodOverride = require('method-override')
 const app = express()
 require('dotenv').config();
 
@@ -23,6 +22,7 @@ app.use(express.json())
 app.use(express.urlencoded({extended:false}));
 app.use(express.static(__dirname + '/public'));
 app.use(flash())
+app.use(methodOverride('_method'))
 
 
 //EXPRESS-SESSIONS

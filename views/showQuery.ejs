@@ -1,0 +1,37 @@
+<div class="w3-container content">
+    <div class="container">
+      <div class="tab" style="margin-top: 30px;">
+        <div class="search-bar">
+          <form action="/admin/search" method="POST">
+            <div class="search">
+              <input type="text" placeholder="Search" name="search" class="form-control" style="width: 200px;">
+              <button><i class="fa fa-search" aria-hidden="true"></i></button>
+            </div>
+          </form>
+        </div>
+        <div class="create">
+          <a href="/admin/application/new" class="btn btn-primary">+ Create New</a>
+        </div>
+      </div>
+    <div>
+        
+      </div>
+    </div>
+</div>
+<div class="container">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb" style="background: rgba(226, 220, 220, 0.39);margin-top: 20px;">
+          <li class="breadcrumb-item"><a href="/admin">Admin</a></li>
+          <li class="breadcrumb-item active" aria-current="page"><%=query.name%></li>
+        </ol>
+    </nav>
+      <div class="container body">
+          <div class="show-app">
+              <h4>Name: <span style="color: blue;"><%=query.name%></span> </h4><br>
+              <h4>Email: <span style="color: blue;"><%=query.email%></span> </h4><br>
+              <h4>Mobile No: <span style="color: blue;"><%=query.mobile%></span> </h4><br>
+              <h4>subject: <span style="color: blue;"><%=query.subject%></span> </h4><br>
+              <h4>Message: <span style="color: blue;"><%=query.message%></span> </h4><br>
+          </div>
+      </div>
+</div>

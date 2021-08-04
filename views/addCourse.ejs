@@ -1,0 +1,62 @@
+<div class="w3-container content">
+    <div class="container">
+      <div class="tab" style="margin-top: 30px;">
+        <div class="search-bar">
+          <form action="/admin/search" method="POST">
+            <div class="search">
+              <input type="text" placeholder="Search" name="search" class="form-control" style="width: 200px;">
+              <button><i class="fa fa-search" aria-hidden="true"></i></button>
+            </div>
+          </form>
+        </div>
+        <!-- <div class="create">
+          <a href="/admin/application/new" class="btn btn-primary">+ Create New</a>
+        </div> -->
+      </div>
+    <div>
+        
+      </div>
+    </div>
+</div>
+<div class="container">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb" style="background: rgba(226, 220, 220, 0.39);margin-top: 20px;">
+          <li class="breadcrumb-item"><a href="/admin">Admin</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Add course</li>
+        </ol>
+    </nav>
+      <div class="container body">
+            <div class="show-app">
+                <form action="/admin/courses/add" method="POST">
+                    <div>
+                        <label for="courseName">Course name</label>
+                        <input type="text" name="courseName" class="form-control" placeholder="Course name">
+                    </div>
+                    <br>
+                    <div>
+                        <label for="courseName">Overview</label>
+                        <input type="text" name="overview" class="form-control" placeholder="Overview">
+                    </div><br>
+                    <div>
+                        <label for="courseName">Vision</label>
+                        <input type="text" name="vision" class="form-control" placeholder="Vision">
+                    </div>
+                    <br>
+                    <div>
+                        <label for="courseName">Mission</label>
+                        <input type="text" name="mission" class="form-control" placeholder="mission">
+                    </div><br>
+                    <div>
+                        <label for="courseName">Elegibility</label>
+                        <input type="text" name="elegibility" class="form-control" placeholder="Elegibility">
+                    </div><br>
+                    <div>
+                        <label for="courseName">Features</label>
+                        <input type="text" name="features" class="form-control" placeholder="Features">
+                    </div><br>
+                    <button class="btn btn-success" type="submit">Create</button>
+
+                </form>
+          </div>
+      </div>
+</div>

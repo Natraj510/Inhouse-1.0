@@ -9,45 +9,42 @@
             </div>
           </form>
         </div>
-        <!-- <div class="create">
-          <a href="/admin/application/new" class="btn btn-primary">+ Create New</a>
-        </div> -->
+        <div class="create">
+          <a href="/admin/courses/new" class="btn btn-primary">+ Create New</a>
+        </div>
       </div>
     <div>
         
       </div>
     </div>
   </div>
-  <div class="container body">
-    <table class="table">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb" style="background: rgba(226, 220, 220, 0.39);margin-top: 20px;">
+        <li class="breadcrumb-item"><a href="/admin">Admin</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Courses</li>
+      </ol>
+    </nav>
+    <table class="table body">
       <thead class="table-light">
         <tr>
-          <th scope="col">Id</th>
-          <th scope="col">Name</th>
-          <th scope="col" class="hide">Email</th>
-          <th scope="col" class="hide">Phone No.</th>
-          <th scope="col" class="hide">State</th>
-          <th scope="col" class="hide">Course</th>
+          <th scope="col">Course Name</th>
+
         </tr>
       </thead>
       <tbody>
-        <% app.forEach(apply =>{%>
+        <% course.forEach(items =>{%>
           <tr>
-            <th scope="row"><%=apply.id%></th>
-            <td><%=apply.name%></td>
-            <td class="hide"><%=apply.email%></td>
-            <td class="hide">+<%=apply.code%> <%=apply.mobile%></td>
-            <td class="hide"><%=apply.state%></td>
-            <td class="hide"><%=apply.course%></td>
+            <th scope="row"><%=items.courseName%></th>
             <td>
               <div class="btn-group dropleft">
                 <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
                 </button>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item text-center" href="/admin/applications/<%=apply.id%>"></i> Show</a>
+                    <a class="dropdown-item text-center" href="/admin/applications/<%=items.id%>"></i> Show</a>
                     <!-- <a class="dropdown-item" href=""><i class="fa fa-pencil" aria-hidden="true" style="padding: 10px;"></i> Edit</a> -->
-                    <form action="/admin/delete/<%=apply.id%>?_method=DELETE" method="POST" style="height: 30px;padding: 10px;">
+                    <form action="/admin/delete/<%=items.id%>?_method=DELETE" method="POST" style="height: 30px;padding: 10px;">
                     <button style="margin-top: -10px; border: none; background-color: white; margin-left: 17px;"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
                   </form>
                 </div>
