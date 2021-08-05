@@ -34,26 +34,42 @@
                     </div>
                     <br>
                     <div>
-                        <label for="courseName">Overview</label>
+                        <label for="overview">Overview</label>
                         <input type="text" name="overview" class="form-control" placeholder="Overview">
                     </div><br>
                     <div>
-                        <label for="courseName">Vision</label>
+                        <label for="vision">Vision</label>
                         <input type="text" name="vision" class="form-control" placeholder="Vision">
                     </div>
                     <br>
                     <div>
-                        <label for="courseName">Mission</label>
-                        <input type="text" name="mission" class="form-control" placeholder="mission">
+                        <label for="mission">Mission</label>
+                        <textarea name="mission" id="editor">
+                          &lt;p&gt;&lt;/p&gt;
+                        </textarea>
                     </div><br>
                     <div>
-                        <label for="courseName">Elegibility</label>
-                        <input type="text" name="elegibility" class="form-control" placeholder="Elegibility">
+                        <label for="elegibility">Eligibility</label>
+                        <input type="text" name="elegibility" class="form-control" placeholder="Eligibility">
                     </div><br>
                     <div>
-                        <label for="courseName">Features</label>
+                        <label for="features">Features</label>
                         <input type="text" name="features" class="form-control" placeholder="Features">
                     </div><br>
+                    <div>
+                      <label for="faqs">FAQS</label>
+                      <button type="button" class="btn btn-primary" id="addFaq">+</button>
+                    </div>
+                    <br>
+                    <div class="faqs">
+                      <!-- <div class="question">
+
+                      </div> -->
+                      <!-- <div class="answer">
+                        
+                      </div> -->
+                    </div>
+                    <br>
                     <button class="btn btn-success" type="submit">Create</button>
 
                 </form>

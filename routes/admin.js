@@ -111,7 +111,8 @@ router.get('/courses/new',async (req,res) =>{
 
 router.post('/courses/add',async (req,res) =>{
     try{
-        const {courseName,overview,vision,mission,elegibility,features} = req.body
+        const {courseName,overview,vision,mission,elegibility,features,faq} = req.body
+        console.log(faq);
         const newCourse = await new course({
             courseName,
             overview,
@@ -121,7 +122,7 @@ router.post('/courses/add',async (req,res) =>{
             features
         })
         await newCourse.save()
-        res.redirect('/admin')
+        res.redirect('/admin/courses')
 
     }catch{
         res.status(401).json({success:false})

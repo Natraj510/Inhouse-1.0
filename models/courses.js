@@ -1,5 +1,10 @@
 const mongoose = require('mongoose')
 
+// const faqSchema = mongoose.Schema({
+//     question:String,
+//     answer:String
+// })
+
 const courseSchema = mongoose.Schema({
     courseName :{
         type: String,
@@ -23,9 +28,12 @@ const courseSchema = mongoose.Schema({
     features:{
         type:String
     },
-    faq:{
-        type:String
-    },
+    faq:[
+        {
+            question:String,
+            answer:String
+        }
+    ],
     date:{
         type: Date,
         default: Date.now()
