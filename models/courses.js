@@ -22,9 +22,24 @@ const courseSchema = mongoose.Schema({
     elegibility :{
         type: String
     },
-    curriculum  :{
-        type: String,
-    },
+    curriculum :[
+        {
+            title:[
+                {
+                    title1:String,
+                    title2:String,
+                    title3:String
+                }
+            ],
+            subjects:[
+                {
+                    courseCode:String,
+                    subjectName:String,
+                    credits:String
+                }
+            ]
+        }
+    ],
     features:{
         type:String
     },

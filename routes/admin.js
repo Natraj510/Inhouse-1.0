@@ -109,17 +109,19 @@ router.get('/courses/new',async (req,res) =>{
 })
 
 
-router.post('/courses/add',async (req,res) =>{
+router.post('/courses/new',async (req,res) =>{
     try{
         const {courseName,overview,vision,mission,elegibility,features,faq} = req.body
-        console.log(faq);
+        console.log(curriculum);
         const newCourse = await new course({
             courseName,
             overview,
             vision,
             mission,
+            curriculum,
             elegibility,
-            features
+            features,
+            faq
         })
         await newCourse.save()
         res.redirect('/admin/courses')
@@ -130,6 +132,48 @@ router.post('/courses/add',async (req,res) =>{
     }
 })
 
+router.get('/courses/faqs/:id',(req,res) =>{
+    try{
+        res.render('faq',{layout:'admin',id:req.params.id})
+    }catch{
+        res.status(401).json({success:false})
+        console.log(err);
+    }
+})
+
+router.post('/courses/faqs/:id',async(req,res) =>{
+    try{
+
+        await course.findOneAndUpdate({_id: req.params.id}, {$push: {faq: {question: req.body.question, answer: req.body.answer}}})
+        res.redirect('/admin/courses')
+    }catch{
+        res.status(401).json({success:false})
+        console.log(err);
+    }
+})
+
+router.get('/courses/curriculum/:id',(req,res) =>{
+    try{
+        res.render('curriculum',{layout:'admin',id:req.params.id})
+    }catch{
+        res.status(401).json({success:false})
+        console.log(err);
+    }
+})
+
+router.post('/courses/curriculum/:id',async(req,res) =>{
+    try{
+        console.log(req.body.title1);
+        console.log(req.body.courseCode);
+
+        await course.findOneAndUpdate({_id: req.params.id}, {$push: {curriculum: {title:{title1: req.body.title1, title2: req.body.title2 , title3:req.body.title3}},subjects:{courseCode:req.body.courseCode,subjectName:req.body.subjectName,credits:req.body.credits}}})
+        
+        res.redirect('/admin/courses')
+    }catch{
+        res.status(401).json({success:false})
+        console.log(err);
+    }
+})
 
 
 

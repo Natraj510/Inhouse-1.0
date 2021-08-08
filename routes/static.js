@@ -29,7 +29,7 @@ router.get('/online-learning',async (req,res)=>{
 router.get('/online-learning/:id',async (req,res)=>{
     try{
         const subjects = await course.findById(req.params.id)
-        // console.log(mba);
+        console.log(subjects.faq);
         res.render('subjects',{sub:subjects})
     }catch(err){
         res.status(404).json({success:false})

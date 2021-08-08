@@ -1,0 +1,50 @@
+<div class="w3-container content">
+    <div class="container">
+      <div class="tab" style="margin-top: 30px;">
+        <div class="search-bar">
+          <form action="/admin/search" method="POST">
+            <div class="search">
+              <input type="text" placeholder="Search" name="search" class="form-control" style="width: 200px;">
+              <button><i class="fa fa-search" aria-hidden="true"></i></button>
+            </div>
+          </form>
+        </div>
+        <!-- <div class="create">
+          <a href="/admin/application/new" class="btn btn-primary">+ Create New</a>
+        </div> -->
+      </div>
+    <div>
+        
+      </div>
+    </div>
+</div>
+<div class="container">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb" style="background: rgba(226, 220, 220, 0.39);margin-top: 20px;">
+          <li class="breadcrumb-item"><a href="/admin">Admin</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Add Curriculum</li>
+        </ol>
+    </nav>
+      <div class="container body">
+            <div class="show-app">
+                <form action="/admin/courses/curriculum/<%=id%>" method="POST">
+                    <div>
+                        <label for="question">Table heading</label>
+                        <input type="text" name="title1" class="form-control" placeholder="Heading 1"><br>
+                        <input type="text" name="title2" class="form-control" placeholder="Heading 2"><br>
+                        <input type="text" name="title3" class="form-control" placeholder="Heading 3">
+                    </div>
+                    <br>
+                    <div>
+                        <label for="answer">Subjects</label>
+                        <input type="text" name="courseCode" class="form-control" placeholder="courseCode"><br>
+                        <input type="text" name="subjectName" class="form-control" placeholder="subjectName"><br>
+                        <input type="text" name="credits" class="form-control" placeholder="credits">
+                    </div><br>
+                    
+                    <button class="btn btn-success" type="submit">Add</button>
+
+                </form>
+          </div>
+      </div>
+</div>
