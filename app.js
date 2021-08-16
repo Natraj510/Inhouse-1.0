@@ -5,8 +5,10 @@ const expressLayouts = require('express-ejs-layouts')
 const flash = require('connect-flash')
 const session = require('express-session')
 const methodOverride = require('method-override')
+const passport = require('passport')
 const app = express()
 require('dotenv').config();
+require('./configs/passport')(passport)
 
 const PORT = process.env.PORT;
 
@@ -32,6 +34,11 @@ app.use(session({
     saveUninitialized: true
 }))
 
+//PASSPORT MIDDLEWARE
+app.use(passport.initialize());
+app.use(passport.session());
+
+
 //FLASH MIDDLEWARES
 app.use((req,res,next) =>{
     res.locals.success_msg = req.flash('success_msg')
@@ -44,6 +51,10 @@ app.use((req,res,next) =>{
 app.use('/',require('./routes/static'))
 app.use('/admin',require('./routes/admin'))
 
+app.get('/logout',(req,res) =>{
+    req.logout()
+    res.redirect('/admin/login')
+})
 
 
 
