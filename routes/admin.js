@@ -22,7 +22,7 @@ router.get('/',authenticated,async (req,res) =>{
     }
 })
 
-router.delete('/delete/:id',async (req,res) =>{
+router.delete('/delete/:id',authenticated,async (req,res) =>{
     try{
         await apply.findByIdAndDelete(req.params.id)
         res.redirect('/admin')
@@ -51,7 +51,7 @@ router.get('/applications/:id',authenticated,async (req,res) =>{
         console.log(err);
     }
 })
-router.delete('/applications/delete/:id',async (req,res) =>{
+router.delete('/applications/delete/:id',authenticated,async (req,res) =>{
     try{
         await apply.findByIdAndDelete(req.params.id)
         res.redirect('/admin/applications')
@@ -81,7 +81,7 @@ router.get('/queries/:id',authenticated,async (req,res) =>{
     }
 })
 
-router.delete('/queries/delete/:id',async (req,res) =>{
+router.delete('/queries/delete/:id',authenticated,async (req,res) =>{
     try{
         await query.findByIdAndDelete(req.params.id)
         res.redirect('/admin/queries')
@@ -114,16 +114,14 @@ router.get('/courses/new',authenticated,async (req,res) =>{
 })
 
 
-router.post('/courses/new',async (req,res) =>{
+router.post('/courses/new',authenticated,async (req,res) =>{
     try{
         const {courseName,overview,vision,mission,elegibility,features,faq} = req.body
-        console.log(curriculum);
         const newCourse = await new course({
             courseName,
             overview,
             vision,
             mission,
-            curriculum,
             elegibility,
             features,
             faq
@@ -146,7 +144,7 @@ router.get('/courses/faqs/:id',authenticated,(req,res) =>{
     }
 })
 
-router.post('/courses/faqs/:id',async(req,res) =>{
+router.post('/courses/faqs/:id',authenticated,async(req,res) =>{
     try{
 
         await course.findOneAndUpdate({_id: req.params.id}, {$push: {faq: {question: req.body.question, answer: req.body.answer}}})
@@ -166,7 +164,7 @@ router.get('/courses/curriculum/:id',authenticated,(req,res) =>{
     }
 })
 
-router.post('/courses/curriculum/:id',async(req,res) =>{
+router.post('/courses/curriculum/:id',authenticated,async(req,res) =>{
     try{
         
         await course.findOneAndUpdate({_id: req.params.id}, {$push: {curriculum: {title:{title1: req.body.title1, title2: req.body.title2 , title3:req.body.title3},subjects:{courseCode:req.body.courseCode,subjectName:req.body.subjectName,credits:req.body.credits}}}})
